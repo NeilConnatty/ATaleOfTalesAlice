@@ -9,6 +9,8 @@ public class CrosswordInputField : MonoBehaviour
     private Transform _myTransform;
     private InputField _inputField;
     private Text _inputText;
+    private Image _inputImage;
+    private bool _hasInput;
 
     void Awake ()
     {
@@ -16,13 +18,32 @@ public class CrosswordInputField : MonoBehaviour
         GameObject childText = _myTransform.Find("Text").gameObject;
         _inputText = childText.GetComponent<Text>();
         _inputField = this.GetComponent<InputField>();
+        _inputImage = this.GetComponent<Image>();
     }
 
-    public void CheckLetter ()
+    public void inputSet (bool input)
     {
-        if (_inputText.text.Equals(solutionLetter)) {
-            _inputField.interactable = false;
-        }
+        _hasInput = input;
+    }
+
+    public void makeUninteractable ()
+    {
+        _inputField.interactable = false;
+    }
+
+    public bool isSolution ()
+    {
+        return _inputText.text.Equals(solutionLetter);
+    }
+
+    public bool hasInput ()
+    {
+        return _hasInput;
+    }
+
+    public void setColor (Color color)
+    {
+        _inputImage.color = color;
     }
 
 }

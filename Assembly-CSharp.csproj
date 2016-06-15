@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{48F9DB1F-58BF-F96A-85B0-910209B5D0E3}</ProjectGuid>
+    <ProjectGuid>{C9623BD3-6953-FCCD-F5ED-EC3096DD7C16}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\TriangleDown.cs" />
      <Compile Include="Assets\Scripts\TriangleUp.cs" />
      <Compile Include="Assets\Scripts\WinGame.cs" />
+     <Compile Include="Assets\Scripts\Word.cs" />
      <Compile Include="Assets\Scripts\WordScramblePuzzle.cs" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
@@ -73,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{5943FC74-297A-1EC3-D8EB-E06A5361FE8C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C8ED2D43-B57A-5BCA-29E6-0FFDD6B0B2B1}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
