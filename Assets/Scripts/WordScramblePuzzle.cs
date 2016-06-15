@@ -30,6 +30,14 @@ public class WordScramblePuzzle : MonoBehaviour
                 break;
             }
         }
-        if (_solved) GameManager.gm.SolvePuzzle ();
+        if (_solved) {
+            LockInPuzzle ();
+            GameManager.gm.SolvePuzzle ();
+        }
+    }
+
+    void LockInPuzzle ()
+    {
+        // TODO
     }
 }
