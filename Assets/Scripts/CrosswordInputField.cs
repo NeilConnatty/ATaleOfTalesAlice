@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+[RequireComponent (typeof (InputField))]
+[RequireComponent (typeof (Image))]
 public class CrosswordInputField : MonoBehaviour
 {
     public string solutionLetter;
@@ -33,7 +35,7 @@ public class CrosswordInputField : MonoBehaviour
 
     public bool isSolution ()
     {
-        return _inputText.text.Equals(solutionLetter);
+        return _inputText.text.Equals (solutionLetter);
     }
 
     public bool hasInput ()
@@ -44,6 +46,11 @@ public class CrosswordInputField : MonoBehaviour
     public void setColor (Color color)
     {
         _inputImage.color = color;
+    }
+
+    public Color getColor ()
+    {
+        return _inputImage.color;
     }
 
 }

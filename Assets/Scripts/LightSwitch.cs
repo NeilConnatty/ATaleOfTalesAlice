@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
+[RequireComponent (typeof (Collider))]
 public class LightSwitch : MonoBehaviour
 {
-    
+    public MagicWord magicWord;
+
+    void OnMouseDown ()
+    {
+        magicWord.lightSwtichOn ();
+    }
 }
