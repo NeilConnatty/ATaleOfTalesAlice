@@ -9,15 +9,12 @@ public class CrosswordInputField : MonoBehaviour
     public string solutionLetter;
     public Word[] words;
 
-    private Transform _myTransform;
     private InputField _inputField;
     private Image _inputImage;
     private bool _hasInput;
 
     void Awake ()
     {
-        _myTransform = this.GetComponent<Transform>();
-        GameObject childText = _myTransform.Find("Text").gameObject;
         _inputField = this.GetComponent<InputField>();
         _inputImage = this.GetComponent<Image>();
         _hasInput = false;

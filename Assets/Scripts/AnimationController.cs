@@ -17,9 +17,6 @@ public class AnimationController : MonoBehaviour
         if (ac == null)
             ac = this.GetComponent<AnimationController> ();
 
-        if (nm == null)
-            nm = GameObject.FindWithTag("NetworkManager").GetComponent<NetworkManager> ();
-
         _mazeAnimator = innerMaze.GetComponent<Animator> ();
     }
 
@@ -41,6 +38,6 @@ public class AnimationController : MonoBehaviour
     IEnumerator LoadNextLevel ()
     {
         yield return new WaitForSeconds (0.5f);
-        nm.ServerChangeScene (levelAfterVictory);
+        NetworkManager.singleton.ServerChangeScene (levelAfterVictory);
     }
 }
