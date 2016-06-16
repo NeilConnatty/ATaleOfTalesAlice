@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class CrosswordInputField : MonoBehaviour
 {
     public string solutionLetter;
+    public Word[] words;
 
     private Transform _myTransform;
     private InputField _inputField;
-    private Text _inputText;
     private Image _inputImage;
     private bool _hasInput;
 
@@ -18,14 +18,21 @@ public class CrosswordInputField : MonoBehaviour
     {
         _myTransform = this.GetComponent<Transform>();
         GameObject childText = _myTransform.Find("Text").gameObject;
-        _inputText = childText.GetComponent<Text>();
         _inputField = this.GetComponent<InputField>();
         _inputImage = this.GetComponent<Image>();
+        _hasInput = false;
     }
 
-    public void inputSet (bool input)
+    public void inputSet ()
     {
-        _hasInput = input;
+        if (_inputField.text.Equals (""))
+            _hasInput = false;
+        else
+            _hasInput = true;
+
+        foreach (Word word in words) {
+            word.inputUpdate ();
+        }
     }
 
     public void makeUninteractable ()
@@ -35,7 +42,7 @@ public class CrosswordInputField : MonoBehaviour
 
     public bool isSolution ()
     {
-        return _inputText.text.Equals (solutionLetter);
+        return _inputField.text.Equals (solutionLetter);
     }
 
     public bool hasInput ()

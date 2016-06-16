@@ -6,14 +6,17 @@ public class Word : MonoBehaviour
 {
     public CrosswordInputField[] inputLetters;
 
-    void Update ()
+    public void inputUpdate ()
     {
-        if (checkWordFull ()) {
-            if (checkLetters ()) {
-                acceptSolution ();
-            } else {
-                rejectSolution ();
-            }
+        // if word not full
+        if (!checkWordFull ()) {
+            clearSolution ();
+            return;
+        }
+        if (checkLetters ()) {
+            acceptSolution ();
+        } else {
+            rejectSolution ();
         }
     }
 
@@ -39,6 +42,7 @@ public class Word : MonoBehaviour
     {
         foreach (CrosswordInputField input in inputLetters) {
             input.setColor (Color.green);
+            input.makeUninteractable ();
         }
     }
 
@@ -46,6 +50,13 @@ public class Word : MonoBehaviour
     {
         foreach (CrosswordInputField input in inputLetters) {
             input.setColor (Color.red);
+        }
+    }
+
+    void clearSolution ()
+    {
+        foreach (CrosswordInputField input in inputLetters) {
+            input.setColor (Color.white);
         }
     }
 }

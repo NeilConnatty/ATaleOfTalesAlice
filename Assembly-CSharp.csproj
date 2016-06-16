@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\CameraManager.cs" />
      <Compile Include="Assets\Scripts\CrosswordInputField.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\HumptyPiece.cs" />
      <Compile Include="Assets\Scripts\Letter.cs" />
      <Compile Include="Assets\Scripts\LightSwitch.cs" />
