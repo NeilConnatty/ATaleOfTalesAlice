@@ -33,25 +33,12 @@ public class MazeCube : NetworkBehaviour
 
     void TriggerEvent ()
     {
-        switch (cubeNum) {
-            case CubeNumber.one:
-                AnimationController.ac.TriggerRotationOne ();
-                this.gameObject.SetActive(false);
-                break;
-
-            case CubeNumber.two:
-                AnimationController.ac.TriggerRotationTwo ();
-                this.gameObject.SetActive(false);
-                break;
-
-            case CubeNumber.three:
-                AnimationController.ac.LevelComplete ();
-                break;
-        }
-
+        GameState.gs.loadNextScene ();
+        /*
         Vector3 tempPosition = _player.GetComponent<Transform> ().position;
         tempPosition.x = 0;
         tempPosition.z = 0;
         _player.GetComponent<Transform> ().position = tempPosition;
+        */
     }
 }

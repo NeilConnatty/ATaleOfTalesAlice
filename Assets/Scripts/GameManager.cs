@@ -27,12 +27,6 @@ public class GameManager : NetworkBehaviour
 
     public void PickUpPiece ()
     {
-        StartCoroutine (LoadNextLevel());
-    }
-
-    IEnumerator LoadNextLevel ()
-    {
-        yield return new WaitForSeconds (0.5f);
-        nm.ServerChangeScene (levelAfterVictory);
+        // TODO
     }
 }

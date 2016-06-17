@@ -14,6 +14,7 @@ public class GameState : NetworkBehaviour
     public string roomTwo;
     public string roomThree;
     public string mazeScene;
+    public string endScene;
 
     [SyncVar(hook="StateChange")] State _gameState;
 
@@ -39,17 +40,48 @@ public class GameState : NetworkBehaviour
                 StartCoroutine (ChangeScene (roomOne));
                 StartCoroutine (ChangeState (State.PUZZLE1));
                 break;
+
+            case State.PUZZLE1 :
+                StartCoroutine (ChangeScene (mazeScene));
+                StartCoroutine (ChangeState (State.MAZE2));
+                break;
+
+            case State.MAZE2 :
+                StartCoroutine (ChangeScene (roomTwo));
+                StartCoroutine (ChangeState (State.PUZZLE2));
+                break;
+
+            case State.PUZZLE2 :
+                StartCoroutine (ChangeScene (mazeScene));
+                StartCoroutine (ChangeState (State.MAZE3));
+                break;
+
+            case State.MAZE3 :
+                StartCoroutine (ChangeScene (roomThree));
+                StartCoroutine (ChangeState (State.PUZZLE3));
+                break;
+
+            case State.PUZZLE3 :
+                StartCoroutine (ChangeScene (mazeScene));
+                StartCoroutine (ChangeState (State.MAZE4));
+                break;
+
+            case State.MAZE4 :
+                StartCoroutine (ChangeScene (endScene));
+                StartCoroutine (ChangeState (State.END));
+                break;
         }
     }
 
     IEnumerator ChangeScene (string nextScene)
     {
+        yield return new WaitForSeconds (0.0f);
         NetworkManager.singleton.ServerChangeScene (nextScene);
     }
 
     IEnumerator ChangeState (State nextState)
     {
-        yield return new WaitForSeconds (2.5f);
+        yield return new WaitForSeconds (1.0f);
         _gameState = nextState;
     }
 
@@ -63,9 +95,6 @@ public class GameState : NetworkBehaviour
 
             case State.MAZE3 :
                 AnimationController.ac.TriggerRotationTwo ();
-                break;
-
-            default :
                 break;
         }
     }

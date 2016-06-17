@@ -6,5 +6,6 @@ public class HumptyPiece : MonoBehaviour
     void OnMouseDown ()
     {
         GameManager.gm.PickUpPiece ();
+        GameState.gs.loadNextScene ();
     }
 }
