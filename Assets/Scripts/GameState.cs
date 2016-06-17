@@ -70,6 +70,7 @@ public class GameState : NetworkBehaviour
                 StartCoroutine (ChangeScene (endScene));
                 StartCoroutine (ChangeState (State.END));
                 break;
+            
         }
     }
 
