@@ -6,8 +6,9 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager gm;
     public static NetworkManager nm;
-    public string levelAfterVictory;
-    public GameObject humptyDumptyPieceOne;
+    public GameObject humptyDumptyPiece;
+
+    [SyncVar(hook="StateChange")] int noPuzzlesSolved = 0;
 
     void Awake ()
     {
@@ -17,16 +18,22 @@ public class GameManager : NetworkBehaviour
         if (nm == null)
             nm = GameObject.FindWithTag("NetworkManager").GetComponent<NetworkManager> ();
 
-        humptyDumptyPieceOne.SetActive(false);
+        humptyDumptyPiece.SetActive(false);
     }
 
     public void SolvePuzzle ()
     {
-        humptyDumptyPieceOne.SetActive(true);
+        noPuzzlesSolved += 1;
     }
 
     public void PickUpPiece ()
     {
-        // TODO
+        GameState.gs.loadNextScene ();
+    }
+
+    void StateChange (int newState)
+    {
+        noPuzzlesSolved = newState;
+        humptyDumptyPiece.SetActive (true);
     }
 }

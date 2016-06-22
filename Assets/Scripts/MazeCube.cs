@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 
 public enum CubeNumber {one = 0, two = 1, three = 2};
 
+[RequireComponent (typeof (Collider))]
 public class MazeCube : NetworkBehaviour
 {
     [SyncVar(hook="StateChange")] bool mouseClicked = false;

@@ -62,7 +62,10 @@
      <Compile Include="Assets\Scripts\LightSwitch.cs" />
      <Compile Include="Assets\Scripts\MagicWord.cs" />
      <Compile Include="Assets\Scripts\MazeCube.cs" />
+     <Compile Include="Assets\Scripts\PuzzleTwoManager.cs" />
      <Compile Include="Assets\Scripts\RenderMesh.cs" />
+     <Compile Include="Assets\Scripts\SmokeMaker.cs" />
+     <Compile Include="Assets\Scripts\Teapot.cs" />
      <Compile Include="Assets\Scripts\TriangleDown.cs" />
      <Compile Include="Assets\Scripts\TriangleUp.cs" />
      <Compile Include="Assets\Scripts\WinGame.cs" />

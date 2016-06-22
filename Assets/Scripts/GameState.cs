@@ -70,7 +70,7 @@ public class GameState : NetworkBehaviour
                 StartCoroutine (ChangeScene (endScene));
                 StartCoroutine (ChangeState (State.END));
                 break;
-            
+
         }
     }
 
@@ -82,7 +82,7 @@ public class GameState : NetworkBehaviour
 
     IEnumerator ChangeState (State nextState)
     {
-        yield return new WaitForSeconds (1.0f);
+        yield return new WaitForSeconds (0.5f);
         _gameState = nextState;
     }
 
