@@ -10,13 +10,11 @@ public enum SmokeColor {
 public class Teapot : MonoBehaviour
 {
     public SmokeColor smokeColor;
-    public ParticleSystem particleSystem;
     public TeapotPuzzle teapotPuzzle;
 
     void OnMouseDown ()
     {
-        ParticleSystem ps = Instantiate (particleSystem);
-        ps.transform.position = this.transform.position;
+        teapotPuzzle.makeSmoke (smokeColor, this.transform.position);
         teapotPuzzle.submitSmoke (smokeColor);
     }
 }

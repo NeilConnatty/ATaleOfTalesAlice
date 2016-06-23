@@ -5,12 +5,19 @@ public class TeapotPuzzle : MonoBehaviour
 {
     public SmokeColor[] solution;
     public PuzzleTwoManager pm;
+    public ParticleSystem particleSystem;
 
     private int _numberCorrect;
 
     void Awake ()
     {
         _numberCorrect = 0;
+    }
+
+    public void makeSmoke (SmokeColor color, Vector3 position)
+    {
+        ParticleSystem ps = Instantiate (particleSystem);
+        ps.transform.position = position;
     }
 
     public void submitSmoke (SmokeColor color)
@@ -31,6 +38,6 @@ public class TeapotPuzzle : MonoBehaviour
         pm.activateClockHint ();
     }
 
-    
+
 
 }
