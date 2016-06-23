@@ -5,7 +5,7 @@ public class TeapotPuzzle : MonoBehaviour
 {
     public SmokeColor[] solution;
     public PuzzleTwoManager pm;
-    public ParticleSystem particleSystem;
+    public GameObject particleSystem;
 
     private int _numberCorrect;
 
@@ -16,8 +16,9 @@ public class TeapotPuzzle : MonoBehaviour
 
     public void makeSmoke (SmokeColor color, Vector3 position)
     {
-        ParticleSystem ps = Instantiate (particleSystem);
+        GameObject ps = Instantiate (particleSystem);
         ps.transform.position = position;
+        Destroy(ps, 10.0f);
     }
 
     public void submitSmoke (SmokeColor color)
