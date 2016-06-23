@@ -15,7 +15,8 @@ public class Teapot : MonoBehaviour
 
     void OnMouseDown ()
     {
-        particleSystem.Play ();
+        ParticleSystem ps = Instantiate (particleSystem);
+        ps.transform.position = this.transform.position;
         teapotPuzzle.submitSmoke (smokeColor);
     }
 }

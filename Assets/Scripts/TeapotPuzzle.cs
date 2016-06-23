@@ -19,17 +19,18 @@ public class TeapotPuzzle : MonoBehaviour
             _numberCorrect++;
             if (_numberCorrect == 4) {
                 solvePuzzle ();
-
+                _numberCorrect = 0;
             }
         } else {
             _numberCorrect = 0;
         }
-
-
     }
 
     public void solvePuzzle ()
     {
         pm.activateClockHint ();
     }
+
+    
+
 }
