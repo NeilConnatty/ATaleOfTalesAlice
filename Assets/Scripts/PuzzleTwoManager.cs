@@ -16,4 +16,9 @@ public class PuzzleTwoManager : NetworkBehaviour
     {
         numberLock.SetActive (true);
     }
+
+    public void finishNumberLock ()
+    {
+        GameManager.gm.SolvePuzzle ();
+    }
 }

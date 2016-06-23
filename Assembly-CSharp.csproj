@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\LightSwitch.cs" />
      <Compile Include="Assets\Scripts\MagicWord.cs" />
      <Compile Include="Assets\Scripts\MazeCube.cs" />
+     <Compile Include="Assets\Scripts\NumberLockPuzzle.cs" />
      <Compile Include="Assets\Scripts\PuzzleTwoManager.cs" />
      <Compile Include="Assets\Scripts\RenderMesh.cs" />
      <Compile Include="Assets\Scripts\SmokeMaker.cs" />
