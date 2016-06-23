@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\CameraEnable.cs" />
      <Compile Include="Assets\Scripts\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\ClockNumber.cs" />
      <Compile Include="Assets\Scripts\CrosswordInputField.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\RenderMesh.cs" />
      <Compile Include="Assets\Scripts\SmokeMaker.cs" />
      <Compile Include="Assets\Scripts\Teapot.cs" />
+     <Compile Include="Assets\Scripts\TeapotPuzzle.cs" />
      <Compile Include="Assets\Scripts\TriangleDown.cs" />
      <Compile Include="Assets\Scripts\TriangleUp.cs" />
      <Compile Include="Assets\Scripts\WinGame.cs" />

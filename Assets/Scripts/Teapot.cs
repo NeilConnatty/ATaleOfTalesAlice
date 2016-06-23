@@ -10,16 +10,19 @@ public enum SmokeColor {
 public class Teapot : NetworkBehaviour
 {
     public SmokeColor smokeColor;
-    public ParticleSystem _particleSystem;
+    public ParticleSystem particleSystem;
+
+    private TeapotPuzzle _teapotPuzzle;
 
     void Start ()
     {
-        //_particleSystem.startColor = smokeColor;
+        _teapotPuzzle = GameObject.FindWithTag ("TeapotPuzzle").GetComponent<TeapotPuzzle> ();
     }
 
     void OnMouseDown ()
     {
         if (!isServer) return;
-        _particleSystem.Play();
+        particleSystem.Play ();
+        _teapotPuzzle.submitSmoke (smokeColor);
     }
 }

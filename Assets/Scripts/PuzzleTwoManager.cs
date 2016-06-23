@@ -4,5 +4,5 @@ using UnityEngine.Networking;
 
 public class PuzzleTwoManager : NetworkBehaviour
 {
-    
+
 }
