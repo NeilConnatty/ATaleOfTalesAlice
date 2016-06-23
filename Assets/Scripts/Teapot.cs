@@ -7,22 +7,15 @@ public enum SmokeColor {
 }
 
 [RequireComponent (typeof (Collider))]
-public class Teapot : NetworkBehaviour
+public class Teapot : MonoBehaviour
 {
     public SmokeColor smokeColor;
     public ParticleSystem particleSystem;
-
-    private TeapotPuzzle _teapotPuzzle;
-
-    void Start ()
-    {
-        _teapotPuzzle = GameObject.FindWithTag ("TeapotPuzzle").GetComponent<TeapotPuzzle> ();
-    }
+    public TeapotPuzzle teapotPuzzle;
 
     void OnMouseDown ()
     {
-        if (!isServer) return;
         particleSystem.Play ();
-        _teapotPuzzle.submitSmoke (smokeColor);
+        teapotPuzzle.submitSmoke (smokeColor);
     }
 }
