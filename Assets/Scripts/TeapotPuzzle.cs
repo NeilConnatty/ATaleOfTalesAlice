@@ -4,6 +4,7 @@ using System.Collections;
 public class TeapotPuzzle : MonoBehaviour
 {
     public SmokeColor[] solution;
+    public PuzzleTwoManager pm;
 
     private int _numberCorrect;
 
@@ -29,7 +30,6 @@ public class TeapotPuzzle : MonoBehaviour
 
     public void solvePuzzle ()
     {
-        Debug.Log("solved teapot puzzle");
-        // TODO
+        pm.activateClockHint ();
     }
 }
