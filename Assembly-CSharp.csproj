@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\CameraEnable.cs" />
      <Compile Include="Assets\Scripts\CameraManager.cs" />
      <Compile Include="Assets\Scripts\ClockNumber.cs" />
+     <Compile Include="Assets\Scripts\ClockPuzzle.cs" />
      <Compile Include="Assets\Scripts\CrosswordInputField.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
