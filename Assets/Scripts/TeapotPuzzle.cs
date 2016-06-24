@@ -1,7 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class TeapotPuzzle : MonoBehaviour
+struct TeapotClick {
+    public SmokeColor color;
+    public Vector3 position;
+}
+
+public class TeapotPuzzle : NetworkBehaviour
 {
     public SmokeColor[] solution;
     public PuzzleTwoManager pm;
@@ -9,19 +15,32 @@ public class TeapotPuzzle : MonoBehaviour
 
     private int _numberCorrect;
 
+    [SyncVar(hook="StateChange")] TeapotClick teapotClick;
+
     void Awake ()
     {
         _numberCorrect = 0;
     }
 
-    public void makeSmoke (SmokeColor color, Vector3 position)
+    [Server]
+    void InitState () {
+		teapotClick = new TeapotClick {
+			color = SmokeColor.BLUE,
+			position = new Vector3 (0,0,0)
+		};
+	}
+
+    [Server]
+    public void clickTeapot (SmokeColor color, Vector3 newPosition)
     {
-        GameObject ps = Instantiate (particleSystem);
-        ps.transform.position = position;
-        Destroy(ps, 10.0f);
+        teapotClick = new TeapotClick {
+                            color = color,
+                            position = newPosition
+                        };
+
     }
 
-    public void submitSmoke (SmokeColor color)
+    void submitSmoke (SmokeColor color)
     {
         if (solution[_numberCorrect] == color) {
             _numberCorrect++;
@@ -34,11 +53,55 @@ public class TeapotPuzzle : MonoBehaviour
         }
     }
 
-    public void solvePuzzle ()
+    void solvePuzzle ()
     {
         pm.activateClockHint ();
     }
 
+    void makeSmoke (SmokeColor color, Vector3 position)
+    {
+        GameObject newPS = Instantiate (particleSystem);
+        newPS.transform.position = position;
 
+        // Get particleSystem component, set its color, then play it
+        ParticleSystem ps = newPS.GetComponent<ParticleSystem>();
+        switch (color) {
+            case SmokeColor.WHITE :
+                ps.startColor = Color.white;
+                break;
+            case SmokeColor.BLUE :
+                ps.startColor = Color.blue;
+                break;
+            case SmokeColor.CYAN :
+                ps.startColor = Color.cyan;
+                break;
+            case SmokeColor.GREEN :
+                ps.startColor = Color.green;
+                break;
+            case SmokeColor.MAGENTA :
+                ps.startColor = Color.magenta;
+                break;
+            case SmokeColor.RED :
+                ps.startColor = Color.red;
+                break;
+            case SmokeColor.YELLOW :
+                ps.startColor = Color.yellow;
+                break;
+        }
+        ps.Play ();
 
+        Destroy(newPS, 10.0f);
+    }
+
+    void StateChange (TeapotClick potClick)
+    {
+        teapotClick = potClick;
+        if (isServer) {
+            makeSmoke (SmokeColor.WHITE, teapotClick.position);
+        } else {
+            makeSmoke (teapotClick.color, teapotClick.position);
+        }
+        submitSmoke (teapotClick.color);
+
+    }
 }

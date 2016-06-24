@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 
-public class PuzzleTwoManager : NetworkBehaviour
+public class PuzzleTwoManager : MonoBehaviour
 {
     public GameObject clockHint;
     public GameObject numberLock;
@@ -14,7 +13,7 @@ public class PuzzleTwoManager : NetworkBehaviour
 
     public void finishClockPuzzle ()
     {
-        numberLock.SetActive (true);
+        //numberLock.SetActive (true);
     }
 
     public void finishNumberLock ()
