@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 [RequireComponent (typeof (InputField))]
 [RequireComponent (typeof (Image))]
@@ -39,7 +40,7 @@ public class CrosswordInputField : MonoBehaviour
 
     public bool isSolution ()
     {
-        return _inputField.text.Equals (solutionLetter);
+        return _inputField.text.Equals (solutionLetter, StringComparison.CurrentCultureIgnoreCase);
     }
 
     public bool hasInput ()
