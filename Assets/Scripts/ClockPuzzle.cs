@@ -5,26 +5,27 @@ using UnityEngine.UI;
 public class ClockPuzzle : MonoBehaviour
 {
     public Text hours;
-    public Text minutesTens;
-    public Text minutesOnes;
+    public Text minutes;
 
-    public string hoursSolution;
-    public string minutesTensSolution;
-    public string minutesOnesSolution;
+    public string[] hoursSolutions;
+    public string[] minutesSolutions;
+
+    public GameObject[] hints;
 
     public PuzzleTwoManager pm;
 
     public void checkSolution ()
     {
-        if (compareStrings ()) {
-            pm.finishClockPuzzle ();
+        for (int i=0; i<hints.Length; i++) {
+            if (compareStrings (i)) {
+                hints[i].SetActive (true);
+            }
         }
     }
 
-    bool compareStrings ()
+    bool compareStrings (int i)
     {
-        return  hours.text.Equals (hoursSolution) &&
-                minutesTens.text.Equals (minutesTensSolution) &&
-                minutesOnes.text.Equals (minutesOnesSolution);
+        return  hours.text.Equals (hoursSolutions[i]) &&
+                minutes.text.Equals (minutesSolutions[i]);
     }
 }

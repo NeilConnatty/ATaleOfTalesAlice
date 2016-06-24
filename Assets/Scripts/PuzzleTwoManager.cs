@@ -11,11 +11,6 @@ public class PuzzleTwoManager : MonoBehaviour
         clockHint.SetActive (true);
     }
 
-    public void finishClockPuzzle ()
-    {
-        //numberLock.SetActive (true);
-    }
-
     public void finishNumberLock ()
     {
         GameManager.gm.SolvePuzzle ();
