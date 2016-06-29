@@ -77,20 +77,45 @@ public class CardLock : MonoBehaviour
 
     public void moveSelectedLeft ()
     {
+        Card tempPrev;
+        Card tempNext;
+        Card tempTail;
+        Card tempHead;
+
         if (selected == null) {
             return;
         }
+
         if (selected.prev == null) {
-            // TODO
-            return;
-        }
-        if (selected.next == null) {
-            // TODO
+            tempTail = head;
+            for (int i=0; i<NUM_CARDS-1; i++) {
+                tempTail = tempTail.next;
+            }
+            tempNext = selected.next;
+
+            tempTail.next = selected;
+            selected.prev = tempTail;
+            selected.next = null;
+            tempNext.prev = null;
+            head = tempNext;
+
             return;
         }
 
-        Card tempPrev = selected.prev;
-        Card tempNext = selected.next;
+        if (selected.next == null) {
+            tempPrev = selected.prev;
+
+            tempPrev.prev.next = selected;
+            selected.prev = tempPrev.prev;
+            selected.next = tempPrev;
+            tempPrev.prev = selected;
+            tempPrev.next = null;
+
+            return;
+        }
+
+        tempPrev = selected.prev;
+        tempNext = selected.next;
 
         if (tempPrev == head) {
             head = selected;
@@ -107,20 +132,42 @@ public class CardLock : MonoBehaviour
 
     public void moveSelectedRight ()
     {
+        Card tempPrev;
+        Card tempNext;
+        Card tempTail;
+        Card tempHead;
+
         if (selected == null) {
             return;
         }
+
         if (selected.prev == null) {
-            // TODO
-            return;
-        }
-        if (selected.next == null) {
-            // TODO
+            tempNext = selected.next;
+            selected.next = tempNext.next;
+            selected.prev = tempNext;
+            tempNext.next.prev = selected;
+            tempNext.next = selected;
+            tempNext.prev = null;
+            head = tempNext;
+
             return;
         }
 
-        Card tempPrev = selected.prev;
-        Card tempNext = selected.next;
+        if (selected.next == null) {
+            tempHead = head;
+            tempPrev = selected.prev;
+
+            tempPrev.next = null;
+            selected.prev = null;
+            selected.next = tempHead;
+            tempHead.prev = selected;
+            head = selected;
+
+            return;
+        }
+
+        tempPrev = selected.prev;
+        tempNext = selected.next;
 
         if (tempNext.next != null) {
             tempNext.next.prev = selected;
@@ -132,6 +179,4 @@ public class CardLock : MonoBehaviour
         tempNext.prev = tempPrev;
 
     }
-
-
 }
