@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\CardObject.cs" />
      <Compile Include="Assets\Scripts\CardTriangleLeft.cs" />
      <Compile Include="Assets\Scripts\CardTriangleRight.cs" />
+     <Compile Include="Assets\Scripts\CheshireCat.cs" />
      <Compile Include="Assets\Scripts\ClockNumber.cs" />
      <Compile Include="Assets\Scripts\ClockPuzzle.cs" />
      <Compile Include="Assets\Scripts\CrosswordInputField.cs" />

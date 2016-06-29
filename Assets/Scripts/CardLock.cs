@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Card {
     public Card next;
     public Card prev;
-    public Material cardType;
+    public Material suitMat;
+    public string suit;
 }
 
 public class CardLock : MonoBehaviour
@@ -27,12 +29,14 @@ public class CardLock : MonoBehaviour
     public Material spades;
     public Material diamonds;
 
+    public string[] suitSolution;
+
     void Awake ()
     {
-        Card tempH = new Card {next = null, prev = null, cardType = hearts};
-        Card tempC = new Card {next = null, prev = null, cardType = clubs};
-        Card tempS = new Card {next = null, prev = null, cardType = spades};
-        Card tempD = new Card {next = null, prev = null, cardType = diamonds};
+        Card tempH = new Card {next = null, prev = null, suitMat = hearts, suit = "hearts"};
+        Card tempC = new Card {next = null, prev = null, suitMat = clubs, suit = "clubs"};
+        Card tempS = new Card {next = null, prev = null, suitMat = spades, suit = "spades"};
+        Card tempD = new Card {next = null, prev = null, suitMat = diamonds, suit = "diamonds"};
 
         head = tempH;
         tempH.next = tempC;
@@ -50,7 +54,7 @@ public class CardLock : MonoBehaviour
         Card temp = head;
         int index = 0;
         while (temp != null) {
-            cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.cardType;
+            cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.suitMat;
             temp = temp.next;
             index++;
         }
@@ -178,5 +182,17 @@ public class CardLock : MonoBehaviour
         tempNext.next = selected;
         tempNext.prev = tempPrev;
 
+    }
+
+    public bool checkCorrectness ()
+    {
+        Card temp = head;
+        for (int i=0; i<NUM_CARDS-1; i++) {
+            if (!suitSolution[i].Equals(temp.suit, StringComparison.CurrentCultureIgnoreCase)) {
+                return false;
+            }
+            temp = temp.next;
+        }
+        return true;
     }
 }
