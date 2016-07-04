@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\LightSwitch.cs" />
      <Compile Include="Assets\Scripts\MagicWord.cs" />
      <Compile Include="Assets\Scripts\MazeCube.cs" />
+     <Compile Include="Assets\Scripts\NetworkManagerHUD.cs" />
      <Compile Include="Assets\Scripts\NumberLockPuzzle.cs" />
      <Compile Include="Assets\Scripts\PoemWord.cs" />
      <Compile Include="Assets\Scripts\PuzzleThreeManager.cs" />
