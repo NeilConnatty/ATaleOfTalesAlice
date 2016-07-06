@@ -6,6 +6,8 @@ public class Card {
     public Card next;
     public Card prev;
     public Material suitMat;
+    public Material selectedMat;
+    public bool selected;
     public string suit;
 }
 
@@ -28,15 +30,24 @@ public class CardLock : MonoBehaviour
     public Material clubs;
     public Material spades;
     public Material diamonds;
+    // the materials with highlight for if card is selected
+    public Material hearts_highlight;
+    public Material clubs_highlight;
+    public Material spades_highlight;
+    public Material diamonds_highlight;
 
     public string[] suitSolution;
 
     void Awake ()
     {
-        Card tempH = new Card {next = null, prev = null, suitMat = hearts, suit = "hearts"};
-        Card tempC = new Card {next = null, prev = null, suitMat = clubs, suit = "clubs"};
-        Card tempS = new Card {next = null, prev = null, suitMat = spades, suit = "spades"};
-        Card tempD = new Card {next = null, prev = null, suitMat = diamonds, suit = "diamonds"};
+        Card tempH = new Card {next = null, prev = null, suitMat = hearts,
+            selectedMat = hearts_highlight, selected = false, suit = "hearts"};
+        Card tempC = new Card {next = null, prev = null, suitMat = clubs,
+            selectedMat = clubs_highlight, selected = false, suit = "clubs"};
+        Card tempS = new Card {next = null, prev = null, suitMat = spades,
+            selectedMat = spades_highlight, selected = false, suit = "spades"};
+        Card tempD = new Card {next = null, prev = null, suitMat = diamonds,
+            selectedMat = diamonds_highlight, selected = false, suit = "diamonds"};
 
         head = tempH;
         tempH.next = tempC;
@@ -54,16 +65,24 @@ public class CardLock : MonoBehaviour
         Card temp = head;
         int index = 0;
         while (temp != null) {
-            cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.suitMat;
+            if (temp.selected) {
+                cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.selectedMat;
+            } else {
+                cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.suitMat;
+            }
             temp = temp.next;
             index++;
         }
     }
 
+    // Reset all cards so they are no longer selected
     public void ResetAll ()
     {
+        Card temp = head;
         for (int i=0; i<NUM_CARDS; i++) {
+            temp.selected = false;
             cardObjects[i].Reset ();
+            temp = temp.next;
         }
     }
 
@@ -73,6 +92,7 @@ public class CardLock : MonoBehaviour
         for (int i=0; i<NUM_CARDS; i++) {
             if (cardObjects[i].isSelected()) {
                 selected = temp;
+                temp.selected = true;
                 break;
             }
             temp = temp.next;

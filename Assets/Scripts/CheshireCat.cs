@@ -11,7 +11,7 @@ public class CheshireCat : MonoBehaviour
     void OnMouseDown ()
     {
         if (cardLock.checkCorrectness ()) {
-            catTextOne.text = "Thank you, you've\nput them in line.";
+            catTextOne.text = "You did it, you've\nput them in line.";
             catTextTwo.text = "Now go fix this\nfriend of mine.";
             GameManager.gm.SolvePuzzle ();
         } else {
