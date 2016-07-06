@@ -13,12 +13,16 @@ public class CrosswordInputField : MonoBehaviour
     private InputField _inputField;
     private Image _inputImage;
     private bool _hasInput;
+    private bool _isHighlighted;
+    private Color _unhighlightedColor;
 
     void Awake ()
     {
         _inputField = this.GetComponent<InputField>();
         _inputImage = this.GetComponent<Image>();
         _hasInput = false;
+        _isHighlighted = false;
+        _unhighlightedColor = Color.white;
     }
 
     public void inputSet ()
@@ -50,12 +54,28 @@ public class CrosswordInputField : MonoBehaviour
 
     public void setColor (Color color)
     {
-        _inputImage.color = color;
+        if (!_isHighlighted) {
+            _inputImage.color = color;
+        }
+        _unhighlightedColor = color;
     }
 
     public Color getColor ()
     {
         return _inputImage.color;
+    }
+
+    public void makeHighlighted ()
+    {
+        _isHighlighted = true;
+        _unhighlightedColor = _inputImage.color;
+        _inputImage.color = Color.yellow;
+    }
+
+    public void makeUnhighlighted ()
+    {
+        _isHighlighted = false;
+        _inputImage.color = _unhighlightedColor;
     }
 
 }

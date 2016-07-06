@@ -7,6 +7,8 @@ public class NumberLockPuzzle : MonoBehaviour
 
     public string[] solutionNumbers;
     public TextMesh[] numberTexts;
+    public GameObject[] letterBoxes;
+    public Material greenMat;
 
     void Update ()
     {
@@ -28,6 +30,9 @@ public class NumberLockPuzzle : MonoBehaviour
 
     void LockInPuzzle ()
     {
-        // TODO
+        for (int i=0; i<letterBoxes.Length; i++)
+        {
+            letterBoxes[i].GetComponent<Renderer>().material = greenMat;
+        }
     }
 }

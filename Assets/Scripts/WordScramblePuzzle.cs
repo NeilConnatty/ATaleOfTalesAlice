@@ -6,6 +6,8 @@ public class WordScramblePuzzle : MonoBehaviour
     public int solutionLength;
     public string[] solutionLetters;
     public GameObject[] letterTexts;
+    public GameObject[] letterBoxes;
+    public Material greenMat;
 
     private TextMesh[] _letters;
 
@@ -38,6 +40,9 @@ public class WordScramblePuzzle : MonoBehaviour
 
     void LockInPuzzle ()
     {
-        // TODO
+        for (int i=0; i<letterBoxes.Length; i++)
+        {
+            letterBoxes[i].GetComponent<Renderer>().material = greenMat;
+        }
     }
 }

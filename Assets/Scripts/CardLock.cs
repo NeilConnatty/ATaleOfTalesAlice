@@ -84,7 +84,6 @@ public class CardLock : MonoBehaviour
         Card tempPrev;
         Card tempNext;
         Card tempTail;
-        Card tempHead;
 
         if (selected == null) {
             return;
@@ -138,7 +137,6 @@ public class CardLock : MonoBehaviour
     {
         Card tempPrev;
         Card tempNext;
-        Card tempTail;
         Card tempHead;
 
         if (selected == null) {

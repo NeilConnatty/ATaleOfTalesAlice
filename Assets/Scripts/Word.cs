@@ -42,7 +42,7 @@ public class Word : MonoBehaviour
     {
         foreach (CrosswordInputField input in inputLetters) {
             input.setColor (Color.green);
-            input.makeUninteractable ();
+            //input.makeUninteractable ();
         }
     }
 
