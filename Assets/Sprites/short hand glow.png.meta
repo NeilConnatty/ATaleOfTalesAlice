@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: fe0d9fb81362e4eedb9a9a3437919d59
-timeCreated: 1467913390
+timeCreated: 1467934112
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: short hand glow_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +39,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +50,26 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: short hand glow_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 72
+        width: 81
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.5, y: 138}
+        - {x: -29.5, y: 138}
+        - {x: -31.5, y: 136}
+        - {x: -40.5, y: 78}
+        - {x: -40.5, y: -138}
+        - {x: 40.5, y: -138}
+        - {x: 40.5, y: 69}
+        - {x: 36.5, y: 90}
     outline: []
   spritePackingTag: 
   userData: 
