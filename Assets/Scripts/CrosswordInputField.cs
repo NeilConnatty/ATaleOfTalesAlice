@@ -9,6 +9,9 @@ public class CrosswordInputField : MonoBehaviour
 {
     public string solutionLetter;
     public Word[] words;
+    // different paths for input fields shared by two words
+    public InputField[] nextInputs;
+    private int _previousWordNumber;
 
     private InputField _inputField;
     private Image _inputImage;
@@ -76,6 +79,18 @@ public class CrosswordInputField : MonoBehaviour
     {
         _isHighlighted = false;
         _inputImage.color = _unhighlightedColor;
+    }
+
+    public void activateThisInputField (int previousWordNumber)
+    {
+        _previousWordNumber = previousWordNumber;
+        _inputField.ActivateInputField ();
+    }
+
+    public void activateNextInputField ()
+    {
+        if (!nextInputs[_previousWordNumber]) return;
+        nextInputs[_previousWordNumber].ActivateInputField ();
     }
 
 }
