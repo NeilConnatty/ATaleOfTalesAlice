@@ -45,10 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AnalogueClockHand.cs" />
+     <Compile Include="Assets\Scripts\AnalogueClockPuzzle.cs" />
      <Compile Include="Assets\Scripts\AnimationController.cs" />
      <Compile Include="Assets\Scripts\ArrowKeysController.cs" />
      <Compile Include="Assets\Scripts\ArrowKeysLooker.cs" />
      <Compile Include="Assets\Scripts\ArrowKeysPlayerInitialize.cs" />
+     <Compile Include="Assets\Scripts\ArrowRotate.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\CameraEnable.cs" />
      <Compile Include="Assets\Scripts\CameraManager.cs" />
@@ -69,6 +72,7 @@
      <Compile Include="Assets\Scripts\LightSwitch.cs" />
      <Compile Include="Assets\Scripts\MagicWord.cs" />
      <Compile Include="Assets\Scripts\MazeCube.cs" />
+     <Compile Include="Assets\Scripts\MouseLooker.cs" />
      <Compile Include="Assets\Scripts\NetworkManagerHUD.cs" />
      <Compile Include="Assets\Scripts\NumberLockPuzzle.cs" />
      <Compile Include="Assets\Scripts\PoemWord.cs" />
