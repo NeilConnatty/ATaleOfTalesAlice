@@ -20,6 +20,17 @@ namespace UnityEngine.Networking
 			manager = GetComponent<NetworkManager>();
 		}
 
+		public void startMatchMaker ()
+		{
+			manager.StartMatchMaker();
+		}
+
+		public void CreateMatch (string matchName)
+		{
+			manager.matchName = matchName;
+			manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", manager.OnMatchCreate);
+		}
+
 		void Update()
 		{
 			if (!showGUI)
