@@ -45,4 +45,10 @@ public class ArrowKeysPlayerInitialize : NetworkBehaviour
             }
         }
     }
+
+    public void disableTriangle ()
+    {
+        Debug.Log ("this is called");
+        if (triangle) triangle.SetActive (false);
+    }
 }
