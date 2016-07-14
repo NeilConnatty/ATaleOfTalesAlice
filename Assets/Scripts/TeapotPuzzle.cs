@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.Networking;
 
 struct TeapotClick {
-    public SmokeColor color;
+    public SmokeColor smokeColor;
+    public Color color;
     public Vector3 position;
 }
 
@@ -25,24 +26,26 @@ public class TeapotPuzzle : NetworkBehaviour
     [Server]
     void InitState () {
 		teapotClick = new TeapotClick {
-			color = SmokeColor.BLUE,
+            smokeColor = SmokeColor.BLUE,
+			color = Color.blue,
 			position = new Vector3 (0,0,0)
 		};
 	}
 
     [Server]
-    public void clickTeapot (SmokeColor color, Vector3 newPosition)
+    public void clickTeapot (SmokeColor smokeColor, Color color, Vector3 newPosition)
     {
         teapotClick = new TeapotClick {
+                            smokeColor = smokeColor,
                             color = color,
                             position = newPosition
                         };
 
     }
 
-    void submitSmoke (SmokeColor color)
+    void submitSmoke (SmokeColor smokeColor)
     {
-        if (solution[_numberCorrect] == color) {
+        if (solution[_numberCorrect] == smokeColor) {
             _numberCorrect++;
             if (_numberCorrect == 4) {
                 solvePuzzle ();
@@ -58,13 +61,15 @@ public class TeapotPuzzle : NetworkBehaviour
         pm.activateClockHint ();
     }
 
-    void makeSmoke (SmokeColor color, Vector3 position)
+    void makeSmoke (Color color, Vector3 position)
     {
         GameObject newPS = Instantiate (particleSystem);
         newPS.transform.position = position;
 
         // Get particleSystem component, set its color, then play it
         ParticleSystem ps = newPS.GetComponent<ParticleSystem>();
+        ps.startColor = color;
+        /*
         switch (color) {
             case SmokeColor.WHITE :
                 ps.startColor = Color.white;
@@ -87,7 +92,14 @@ public class TeapotPuzzle : NetworkBehaviour
             case SmokeColor.YELLOW :
                 ps.startColor = Color.yellow;
                 break;
+            case SmokeColor.BLACK :
+                ps.startColor = Color.black;
+                break;
+            case SmokeColor.GREY :
+                ps.startColor = Color.grey;
+                break;
         }
+        */
         ps.Play ();
 
         Destroy(newPS, 10.0f);
@@ -97,11 +109,11 @@ public class TeapotPuzzle : NetworkBehaviour
     {
         teapotClick = potClick;
         if (isServer) {
-            makeSmoke (SmokeColor.WHITE, teapotClick.position);
+            makeSmoke (Color.white, teapotClick.position);
         } else {
             makeSmoke (teapotClick.color, teapotClick.position);
         }
-        submitSmoke (teapotClick.color);
+        submitSmoke (teapotClick.smokeColor);
 
     }
 }
