@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models_3D/RoomOneEnvironment/CHAIR WITHOUT C.fbm/wall paper final-01.png.meta
 guid: 63196bd4ad616477ba75bf66a432cfc1
 timeCreated: 1468006587
+=======
+guid: 24a62bba6d36947c3997fa731fc6d483
+timeCreated: 1468006227
+>>>>>>> nonVR:Assets/Models_3D/RoomOneEnvironment/CHAIR WITHOUT C.fbm/wall paper final-01.png.meta
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

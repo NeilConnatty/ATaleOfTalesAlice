@@ -21,6 +21,7 @@ namespace UnityEngine.Networking
 		}
 
 		public void startMatchMaker ()
+<<<<<<< HEAD
  		{
  			manager.StartMatchMaker();
  		}
@@ -31,6 +32,17 @@ namespace UnityEngine.Networking
  			manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", manager.OnMatchCreate);
  		}
 
+=======
+		{
+			manager.StartMatchMaker();
+		}
+
+		public void CreateMatch (string matchName)
+		{
+			manager.matchName = matchName;
+			manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", manager.OnMatchCreate);
+		}
+>>>>>>> nonVR
 
 		void Update()
 		{

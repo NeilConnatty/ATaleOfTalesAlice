@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: ca6e613d0005344378baa2fcd9c30558
 folderAsset: yes
+<<<<<<< HEAD
 timeCreated: 1468004964
+=======
+timeCreated: 1468005555
+>>>>>>> nonVR
 licenseType: Free
 DefaultImporter:
   userData: 
