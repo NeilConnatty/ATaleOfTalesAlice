@@ -1,15 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class TriangleKiller : MonoBehaviour
 {
-    private GameObject _player;
-    private ArrowKeysPlayerInitialize _playerInitializer;
+    public GameObject noTrianglePlayerPrefab;
 
     void Start ()
     {
-        _player = GameObject.FindWithTag ("Player");
-        _playerInitializer = _player.GetComponent<ArrowKeysPlayerInitialize> ();
-        _playerInitializer.disableTriangle ();
+        NetworkManager.singleton.playerPrefab = noTrianglePlayerPrefab;
     }
 }

@@ -69,37 +69,6 @@ public class TeapotPuzzle : NetworkBehaviour
         // Get particleSystem component, set its color, then play it
         ParticleSystem ps = newPS.GetComponent<ParticleSystem>();
         ps.startColor = color;
-        /*
-        switch (color) {
-            case SmokeColor.WHITE :
-                ps.startColor = Color.white;
-                break;
-            case SmokeColor.BLUE :
-                ps.startColor = Color.blue;
-                break;
-            case SmokeColor.CYAN :
-                ps.startColor = Color.cyan;
-                break;
-            case SmokeColor.GREEN :
-                ps.startColor = Color.green;
-                break;
-            case SmokeColor.MAGENTA :
-                ps.startColor = Color.magenta;
-                break;
-            case SmokeColor.RED :
-                ps.startColor = Color.red;
-                break;
-            case SmokeColor.YELLOW :
-                ps.startColor = Color.yellow;
-                break;
-            case SmokeColor.BLACK :
-                ps.startColor = Color.black;
-                break;
-            case SmokeColor.GREY :
-                ps.startColor = Color.grey;
-                break;
-        }
-        */
         ps.Play ();
 
         Destroy(newPS, 10.0f);
