@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 public class GameManager : NetworkBehaviour
 {
     public static GameManager gm;
-    public static NetworkManager nm;
     public GameObject humptyDumptyPiece;
 
     [SyncVar(hook="StateChange")] int noPuzzlesSolved = 0;
@@ -14,9 +13,6 @@ public class GameManager : NetworkBehaviour
     {
         if (gm == null)
             gm = this.GetComponent<GameManager> ();
-
-        if (nm == null)
-            nm = GameObject.FindWithTag("NetworkManager").GetComponent<NetworkManager> ();
 
         humptyDumptyPiece.SetActive(false);
     }

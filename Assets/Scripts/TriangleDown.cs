@@ -32,11 +32,11 @@ public class TriangleDown : MonoBehaviour
 
     void OnMouseEnter ()
     {
-        _myRenderer.material = pinkMat;
+        _myRenderer.sharedMaterial = pinkMat;
     }
 
     void OnMouseExit ()
     {
-        _myRenderer.material = redMat;
+        _myRenderer.sharedMaterial = redMat;
     }
 }

@@ -33,11 +33,11 @@ public class TriangleUp : MonoBehaviour
 
     void OnMouseEnter ()
     {
-        _myRenderer.material = greenMat;
+        _myRenderer.sharedMaterial = greenMat;
     }
 
     void OnMouseExit ()
     {
-        _myRenderer.material = redMat;
+        _myRenderer.sharedMaterial = redMat;
     }
 }

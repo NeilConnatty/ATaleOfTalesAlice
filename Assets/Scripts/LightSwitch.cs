@@ -27,10 +27,10 @@ public class LightSwitch : NetworkBehaviour
         blackLightOn = newState;
 
         if (blackLightOn) {
-            _rend.material.SetColor("_Color", Color.red);
+            _rend.sharedMaterial.SetColor("_Color", Color.red);
             magicWord.lightSwtichOn ();
         } else {
-            _rend.material.SetColor("_Color", Color.green);
+            _rend.sharedMaterial.SetColor("_Color", Color.green);
             magicWord.lightSwtichOff ();
         }
     }

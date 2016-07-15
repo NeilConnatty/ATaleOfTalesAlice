@@ -5,6 +5,14 @@ using UnityEngine.UI;
 public class Word : MonoBehaviour
 {
     public CrosswordInputField[] inputLetters;
+    public CrosswordPuzzle puzzle;
+
+    private bool _isCorrect;
+
+    void Awake ()
+    {
+        _isCorrect = false;
+    }
 
     public void inputUpdate ()
     {
@@ -14,10 +22,19 @@ public class Word : MonoBehaviour
             return;
         }
         if (checkLetters ()) {
+            _isCorrect = true;
+            Debug.Log ("Word isCorrect: " + _isCorrect);
             acceptSolution ();
+            puzzle.checkIfSolved ();
         } else {
+            _isCorrect = false;
             rejectSolution ();
         }
+    }
+
+    public bool isWordCorrect ()
+    {
+        return _isCorrect;
     }
 
     // returns true if there is an input for every letter of the word

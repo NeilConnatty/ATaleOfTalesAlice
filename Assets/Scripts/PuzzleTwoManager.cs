@@ -11,6 +11,7 @@ public class PuzzleTwoManager : MonoBehaviour
     {
         clockHint.SetActive (true);
         clockImage.SetActive (true);
+        numberLock.SetActive (true);
     }
 
     public void finishNumberLock ()
