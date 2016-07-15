@@ -4,7 +4,7 @@ using System.Collections;
 public class CrosswordPuzzle : MonoBehaviour
 {
     public Word[] words;
-    public PuzzleOneManager pm;
+    //public PuzzleOneManager pm;
 
     private bool _isSolved;
 
@@ -16,12 +16,10 @@ public class CrosswordPuzzle : MonoBehaviour
     public void checkIfSolved ()
     {
         if (_isSolved) return;
-        Debug.Log ("Checking if solved");
         foreach (Word word in words) {
             if (!word.isWordCorrect ()) return;
         }
         _isSolved = true;
-        Debug.Log ("solved: " + _isSolved);
-        pm.CompleteCrosswordPuzzle ();
+        //pm.CompleteCrosswordPuzzle ();
     }
 }

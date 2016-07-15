@@ -23,7 +23,6 @@ public class Word : MonoBehaviour
         }
         if (checkLetters ()) {
             _isCorrect = true;
-            Debug.Log ("Word isCorrect: " + _isCorrect);
             acceptSolution ();
             puzzle.checkIfSolved ();
         } else {

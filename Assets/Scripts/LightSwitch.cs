@@ -6,7 +6,9 @@ using UnityEngine.Networking;
 [RequireComponent (typeof (Material))]
 public class LightSwitch : NetworkBehaviour
 {
-    public MagicWord magicWord;
+    //public MagicWord magicWord;
+    public GameObject defaultUI;
+    public GameObject blacklightUI;
 
     private Renderer _rend;
 
@@ -27,11 +29,15 @@ public class LightSwitch : NetworkBehaviour
         blackLightOn = newState;
 
         if (blackLightOn) {
-            _rend.sharedMaterial.SetColor("_Color", Color.red);
-            magicWord.lightSwtichOn ();
-        } else {
             _rend.sharedMaterial.SetColor("_Color", Color.green);
-            magicWord.lightSwtichOff ();
+            defaultUI.SetActive (false);
+            blacklightUI.SetActive (true);
+            //magicWord.lightSwtichOn ();
+        } else {
+            _rend.sharedMaterial.SetColor("_Color", Color.red);
+            defaultUI.SetActive (true);
+            blacklightUI.SetActive (false);
+            //magicWord.lightSwtichOff ();
         }
     }
 }
