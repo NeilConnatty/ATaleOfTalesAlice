@@ -7,6 +7,10 @@ public class Word : MonoBehaviour
     public CrosswordInputField[] inputLetters;
     public CrosswordPuzzle puzzle;
 
+    public Color editingColor;
+    public Color correctColor;
+    public Color incorrectColor;
+
     private bool _isCorrect;
 
     void Awake ()
@@ -57,7 +61,7 @@ public class Word : MonoBehaviour
     void acceptSolution ()
     {
         foreach (CrosswordInputField input in inputLetters) {
-            input.setColor (Color.green);
+            input.setColor (correctColor);
             //input.makeUninteractable ();
         }
     }
@@ -65,14 +69,14 @@ public class Word : MonoBehaviour
     void rejectSolution ()
     {
         foreach (CrosswordInputField input in inputLetters) {
-            input.setColor (Color.red);
+            input.setColor (incorrectColor);
         }
     }
 
     void clearSolution ()
     {
         foreach (CrosswordInputField input in inputLetters) {
-            input.setColor (Color.white);
+            input.setColor (editingColor);
         }
     }
 }
