@@ -2,7 +2,8 @@
 using UnityEngine.Networking;
 using System.Collections;
 
-public class FPSController : NetworkBehaviour {
+public class FPSController : NetworkBehaviour
+{
 
 	// public variables
 	public float moveSpeed = 3.0f;

@@ -4,10 +4,11 @@ using UnityEngine.Networking;
 
 public class TriangleKiller : MonoBehaviour
 {
-    public GameObject noTrianglePlayerPrefab;
+    private GameObject noTrianglePrefab;
 
     void Start ()
     {
-        NetworkManager.singleton.playerPrefab = noTrianglePlayerPrefab;
+        noTrianglePrefab = NetworkManager.singleton.gameObject.GetComponent<NetworkPlayerPrefabs>().noTrianglePrefab;
+        NetworkManager.singleton.playerPrefab = noTrianglePrefab;
     }
 }
