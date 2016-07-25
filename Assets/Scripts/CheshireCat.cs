@@ -7,6 +7,25 @@ public class CheshireCat : MonoBehaviour
     public CardLock cardLock;
     public TextMesh catTextOne;
     public TextMesh catTextTwo;
+    public GameObject highlight;
+
+    private Renderer _highlightRenderer;
+
+    void Awake ()
+    {
+        _highlightRenderer = highlight.GetComponent<Renderer> ();
+        _highlightRenderer.enabled = false;
+    }
+
+    void OnMouseEnter ()
+    {
+        _highlightRenderer.enabled = true;
+    }
+
+    void OnMouseExit ()
+    {
+        _highlightRenderer.enabled = false;
+    }
 
     void OnMouseDown ()
     {

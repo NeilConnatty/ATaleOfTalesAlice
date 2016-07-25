@@ -7,10 +7,25 @@ public class CardObject : MonoBehaviour
     private bool _selected;
 
     public CardLock cardLock;
+    public GameObject highlight;
+
+    private Renderer _highlightRenderer;
 
     void Awake ()
     {
         _selected = false;
+        _highlightRenderer = highlight.GetComponent<Renderer> ();
+        _highlightRenderer.enabled = false;
+    }
+
+    void OnMouseEnter ()
+    {
+        _highlightRenderer.enabled = true;
+    }
+
+    void OnMouseExit ()
+    {
+        _highlightRenderer.enabled = false;
     }
 
     void OnMouseDown ()
