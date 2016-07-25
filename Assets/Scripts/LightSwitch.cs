@@ -9,14 +9,28 @@ public class LightSwitch : NetworkBehaviour
     //public MagicWord magicWord;
     public GameObject defaultUI;
     public GameObject blacklightUI;
+    public GameObject highlight;
 
     private Renderer _rend;
+    private Renderer _highlightRenderer;
 
     [SyncVar(hook="StateChange")] bool blackLightOn = false;
 
     void Awake ()
     {
         _rend = this.GetComponent<Renderer> ();
+        _highlightRenderer = highlight.GetComponent<Renderer> ();
+        _highlightRenderer.enabled = false;
+    }
+
+    void OnMouseEnter ()
+    {
+        _highlightRenderer.enabled = true;
+    }
+
+    void OnMouseExit ()
+    {
+        _highlightRenderer.enabled = false;
     }
 
     void OnMouseDown ()
