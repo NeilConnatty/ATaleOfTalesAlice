@@ -13,7 +13,8 @@ public class TriangleDown : MonoBehaviour
     void Awake ()
     {
         _myRenderer = this.gameObject.GetComponent<Renderer>();
-        _myRenderer.material = redMat;
+        _myRenderer.enabled = false;
+        //_myRenderer.material = redMat;
     }
 
     void Start ()
@@ -32,11 +33,13 @@ public class TriangleDown : MonoBehaviour
 
     void OnMouseEnter ()
     {
-        _myRenderer.sharedMaterial = pinkMat;
+        _myRenderer.enabled = true;
+        //_myRenderer.sharedMaterial = pinkMat;
     }
 
     void OnMouseExit ()
     {
-        _myRenderer.sharedMaterial = redMat;
+        _myRenderer.enabled = false;
+        //_myRenderer.sharedMaterial = redMat;
     }
 }

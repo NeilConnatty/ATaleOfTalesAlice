@@ -9,6 +9,10 @@ public class PoemWord : MonoBehaviour
     // optional alternate solution
     public string alternateSolution;
 
+    public Color editingColor;
+    public Color correctColor;
+    public Color incorrectColor;
+
     private InputField _inputField;
     private Image _inputImage;
     private bool _isCorrect;
@@ -23,7 +27,7 @@ public class PoemWord : MonoBehaviour
     public void inputSet ()
     {
         if (_inputField.text.Equals (""))
-            setColor (Color.white);
+            setColor (editingColor);
         else
             checkSolution ();
     }
@@ -32,8 +36,8 @@ public class PoemWord : MonoBehaviour
     {
         _isCorrect = _inputField.text.Equals(solution, StringComparison.CurrentCultureIgnoreCase)
                     || _inputField.text.Equals(alternateSolution, StringComparison.CurrentCultureIgnoreCase);
-        if (_isCorrect) setColor (Color.green);
-        else setColor (Color.red);
+        if (_isCorrect) setColor (correctColor);
+        else setColor (incorrectColor);
     }
 
     void setColor (Color color)

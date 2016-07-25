@@ -6,6 +6,7 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager gm;
     public GameObject humptyDumptyPiece;
+    public Door door;
 
     [SyncVar(hook="StateChange")] int noPuzzlesSolved = 0;
 
@@ -31,5 +32,6 @@ public class GameManager : NetworkBehaviour
     {
         noPuzzlesSolved = newState;
         humptyDumptyPiece.SetActive (true);
+        door.OpenDoor ();
     }
 }

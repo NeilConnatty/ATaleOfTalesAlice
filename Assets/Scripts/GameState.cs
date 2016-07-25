@@ -95,7 +95,7 @@ public class GameState : NetworkBehaviour
                 break;
 
             case State.MAZE3 :
-                AnimationController.ac.TriggerRotationTwo ();
+                AnimationController.ac.TriggerRotationOne ();
                 break;
         }
     }
