@@ -30,6 +30,11 @@ public class GameState : NetworkBehaviour
         _gameState = State.MAZE1;
     }
 
+    public State getState ()
+    {
+        return _gameState;
+    }
+
     public void loadNextScene ()
     {
         switch (_gameState) {

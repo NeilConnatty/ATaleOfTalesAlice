@@ -13,6 +13,24 @@ public class Teapot : MonoBehaviour
     public Color color;
     public TeapotPuzzle teapotPuzzle;
 
+    private Renderer _renderer;
+
+    void Awake ()
+    {
+        _renderer = this.gameObject.GetComponent<Renderer> ();
+        _renderer.enabled = false;
+    }
+
+    void OnMouseEnter ()
+    {
+        _renderer.enabled = true;
+    }
+
+    void OnMouseExit ()
+    {
+        _renderer.enabled = false;
+    }
+
     void OnMouseDown ()
     {
         teapotPuzzle.clickTeapot (smokeColor, color, this.transform.position);

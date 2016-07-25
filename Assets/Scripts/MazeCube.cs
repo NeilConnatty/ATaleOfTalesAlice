@@ -10,13 +10,50 @@ public class MazeCube : NetworkBehaviour
     [SyncVar(hook="StateChange")] bool mouseClicked = false;
 
     public CubeNumber cubeNum;
+    public GameObject star;
 
     private GameObject _player;
+    private Renderer _renderer;
 
     void Start ()
     {
         _player = GameObject.FindWithTag("Player");
         if (!_player) Debug.LogError ("couldn't get player");
+        _renderer = this.gameObject.GetComponent<Renderer> ();
+        _renderer.enabled = false;
+
+        InitializeStar ();
+    }
+
+    void InitializeStar ()
+    {
+        star.SetActive (false);
+        State gameState = GameState.gs.getState ();
+        switch (cubeNum) {
+            case CubeNumber.one :
+                if (gameState == State.MAZE1) star.SetActive (true);
+                break;
+
+            case CubeNumber.two :
+                if (gameState == State.MAZE2 || gameState == State.PUZZLE1)
+                    star.SetActive (true);
+                break;
+
+            case CubeNumber.three :
+                if (gameState == State.MAZE3 || gameState == State.PUZZLE2)
+                    star.SetActive (true);
+                break;
+        }
+    }
+
+    void OnMouseEnter ()
+    {
+        _renderer.enabled = true;
+    }
+
+    void OnMouseExit ()
+    {
+        _renderer.enabled = false;
     }
 
     void OnMouseDown ()
