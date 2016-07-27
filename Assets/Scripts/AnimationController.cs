@@ -20,6 +20,28 @@ public class AnimationController : MonoBehaviour
         _mazeAnimator = innerMaze.GetComponent<Animator> ();
     }
 
+    void Start ()
+    {
+        State gameState = GameState.gs.getState ();
+        switch (gameState) {
+            case State.PUZZLE1 :
+                TriggerRotationOne ();
+                break;
+
+            case State.MAZE2 :
+                TriggerRotationOne ();
+                break;
+
+            case State.PUZZLE2 :
+                TriggerRotationOne ();
+                break;
+
+            case State.MAZE3 :
+                TriggerRotationOne ();
+                break;
+        }
+    }
+
     public void TriggerRotationOne ()
     {
         _mazeAnimator.SetTrigger ("FirstRotation");

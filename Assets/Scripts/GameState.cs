@@ -87,13 +87,15 @@ public class GameState : NetworkBehaviour
 
     IEnumerator ChangeState (State nextState)
     {
-        yield return new WaitForSeconds (0.5f);
+        //yield return new WaitForSeconds (0.5f);
+        yield return new WaitForSeconds (0f);
         _gameState = nextState;
     }
 
     void StateChange (State newState)
     {
         _gameState = newState;
+        /*
         switch (_gameState) {
             case State.MAZE2 :
                 AnimationController.ac.TriggerRotationOne ();
@@ -103,5 +105,6 @@ public class GameState : NetworkBehaviour
                 AnimationController.ac.TriggerRotationOne ();
                 break;
         }
+        */
     }
 }
