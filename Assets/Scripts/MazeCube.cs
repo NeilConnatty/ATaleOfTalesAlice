@@ -7,11 +7,11 @@ public enum CubeNumber {one = 0, two = 1, three = 2};
 [RequireComponent (typeof (Collider))]
 public class MazeCube : NetworkBehaviour
 {
-    [SyncVar(hook="StateChange")] bool mouseClicked = false;
 
     public CubeNumber cubeNum;
     public GameObject star;
 
+    private bool mouseClicked = false;
     private GameObject _player;
     private Renderer _renderer;
 
@@ -58,17 +58,19 @@ public class MazeCube : NetworkBehaviour
 
     void OnMouseDown ()
     {
-        if (!isServer) return;
+        if (mouseClicked) return;
         mouseClicked = true;
         TriggerEvent ();
     }
 
+    /*
     void StateChange (bool clicked)
     {
         mouseClicked = clicked;
         TriggerEvent ();
     }
-
+    */
+    [Server]
     void TriggerEvent ()
     {
         GameState.gs.loadNextScene ();
