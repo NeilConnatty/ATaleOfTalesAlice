@@ -6,8 +6,12 @@ public enum State {
     START, MAZE1, PUZZLE1, MAZE2, PUZZLE2, MAZE3, PUZZLE3, MAZE4, END
 }
 
+/*
+ * Script controlling behaviour of game state, syncronized across network
+ */
 public class GameState : NetworkBehaviour
 {
+    // static reference to this script
     public static GameState gs;
 
     public string roomOne;
@@ -16,6 +20,7 @@ public class GameState : NetworkBehaviour
     public string mazeScene;
     public string endScene;
 
+    // variable to syncronize behaviour across network
     [SyncVar(hook="StateChange")] State _gameState;
 
     void Awake ()
@@ -87,24 +92,12 @@ public class GameState : NetworkBehaviour
 
     IEnumerator ChangeState (State nextState)
     {
-        //yield return new WaitForSeconds (0.5f);
-        yield return new WaitForSeconds (0f);
+        yield return new WaitForSeconds (0.0f);
         _gameState = nextState;
     }
 
     void StateChange (State newState)
     {
         _gameState = newState;
-        /*
-        switch (_gameState) {
-            case State.MAZE2 :
-                AnimationController.ac.TriggerRotationOne ();
-                break;
-
-            case State.MAZE3 :
-                AnimationController.ac.TriggerRotationOne ();
-                break;
-        }
-        */
     }
 }

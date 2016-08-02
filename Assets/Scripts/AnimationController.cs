@@ -2,10 +2,14 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
 
+/*
+ * Script controlling the behaviour of the inner maze's animation
+ * annimation triggered if game at correct GameState
+ */
 public class AnimationController : MonoBehaviour
 {
+    // static reference so can be accessed by other scripts
     public static AnimationController ac;
-    public static NetworkManager nm;
 
     public GameObject innerMaze;
     public string levelAfterVictory;
@@ -52,6 +56,7 @@ public class AnimationController : MonoBehaviour
         _mazeAnimator.SetTrigger ("SecondRotation");
     }
 
+    /* no longer needed?
     public void LevelComplete ()
     {
         StartCoroutine (LoadNextLevel());
@@ -62,4 +67,5 @@ public class AnimationController : MonoBehaviour
         yield return new WaitForSeconds (0.5f);
         NetworkManager.singleton.ServerChangeScene (levelAfterVictory);
     }
+    */
 }

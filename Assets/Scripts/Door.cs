@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script describing behaviour of Door to escape room
+ */
 public class Door : MonoBehaviour
 {
     public float yRoationClosed;

@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script managing behaviour of humpty object in maze
+ */
 public class HumptyManager : MonoBehaviour
 {
     public GameObject pieceOne;

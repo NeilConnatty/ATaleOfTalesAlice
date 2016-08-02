@@ -2,6 +2,9 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+/*
+ * Script to control movement of player in 3D space with first-person shooter-style controls
+ */
 public class FPSController : NetworkBehaviour
 {
 

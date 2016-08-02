@@ -5,9 +5,14 @@ using System;
 
 [RequireComponent (typeof (InputField))]
 [RequireComponent (typeof (Image))]
+/*
+ * Script describing behaviour of input field object in crossword puzzle
+ */
 public class CrosswordInputField : MonoBehaviour
 {
+    // solution
     public string solutionLetter;
+    // all word objects in puzzle
     public Word[] words;
     // different paths for input fields shared by two words
     public InputField[] nextInputs;

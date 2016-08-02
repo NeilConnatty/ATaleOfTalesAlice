@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 
+/*
+ * Script controlling the rotation of object based on drag from touch or mouse click+drag
+ */
 public class ArrowRotate : EventTrigger
 {
     private Quaternion _targetRotation;

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Script controlling rotation of player based on input
+ */
 public class ArrowKeysLooker : MonoBehaviour {
 
 	// Use this for initialization

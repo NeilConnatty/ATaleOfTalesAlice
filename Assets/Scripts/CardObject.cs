@@ -2,11 +2,16 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent (typeof (Collider))]
+/*
+ * Script describing behaviour of object on which card material will be rendered
+ */
 public class CardObject : MonoBehaviour
 {
     private bool _selected;
 
+    // reference to card lock puzzle
     public CardLock cardLock;
+    // reference to gameobject that highlights card when mouse hovers over
     public GameObject highlight;
 
     private Renderer _highlightRenderer;

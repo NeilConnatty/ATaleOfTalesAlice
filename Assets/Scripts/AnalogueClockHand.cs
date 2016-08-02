@@ -2,8 +2,13 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+/*
+ * Script describing behaviour of one hand of analogue clock
+ */
 public class AnalogueClockHand : MonoBehaviour
 {
+    // defaultImage, and highlightedImage to be displayed when
+    // clock hand touched or clicked
     public Sprite defaultImage;
     public Sprite highlightedImage;
 

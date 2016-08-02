@@ -2,14 +2,18 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+/*
+ * Script describing behaviour of Analogue clock puzzle
+ */
 public class AnalogueClockPuzzle : MonoBehaviour
 {
+    // two hands of clock
     public AnalogueClockHand hoursHand;
     public AnalogueClockHand minutesHand;
-
+    // arrays containing angles hands must be at for solution
     public float[] hoursSolutionAngles;
     public float[] minutesSolutionAngles;
-
+    // array containing GameObjects to be activated when solution reached
     public GameObject[] hints;
 
     public float minutes_wiggle_room = 15.0f;
@@ -17,6 +21,7 @@ public class AnalogueClockPuzzle : MonoBehaviour
 
     void Start ()
     {
+        // deactivate all hints
         for (int i=0; i<hints.Length; i++) {
             hints[i].SetActive (false);
         }
@@ -27,6 +32,9 @@ public class AnalogueClockPuzzle : MonoBehaviour
         checkSolution ();
     }
 
+    /*
+     * activate corresponding hint if correct solution reached
+     */
     void checkSolution ()
     {
         for (int i=0; i<hints.Length; i++) {
@@ -36,6 +44,11 @@ public class AnalogueClockPuzzle : MonoBehaviour
         }
     }
 
+    /*
+     * return true if solution reached
+     * solution reached if hour hand's angle == hoursSolutionAngles[i]
+     * AND if minute hand's angle == minutesSolutionAngles[i]
+     */
     bool correctAngles (int i)
     {
         float hoursAngle = hoursHand.getZRotation ();

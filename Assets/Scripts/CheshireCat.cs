@@ -2,11 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent (typeof (Collider))]
+/*
+ * Script that describes behaviour of cheshire cat in room 3
+ */
 public class CheshireCat : MonoBehaviour
 {
+    // reference to card lock puzzle
     public CardLock cardLock;
+    // reference to text objects
     public TextMesh catTextOne;
     public TextMesh catTextTwo;
+    // reference to highlight object that activates when mouse hovers
     public GameObject highlight;
 
     private Renderer _highlightRenderer;

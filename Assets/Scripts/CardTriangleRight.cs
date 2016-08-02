@@ -2,10 +2,14 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent (typeof (Collider))]
+/*
+ * Script describing behaviour of triangle that moves a card right in card lock puzzle
+ */
 public class CardTriangleRight : MonoBehaviour
 {
+    // reference to card lock puzzle
     public CardLock cardLock;
-
+    // materials that change when mouse hovers over object
     public Material redMat;
     public Material greenMat;
 

@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+/*
+ * Class describing structure of a node in list of cards
+ */
 public class Card {
     public Card next;
     public Card prev;
@@ -11,13 +14,18 @@ public class Card {
     public string suit;
 }
 
+/*
+ * Script describing behaviour and scructure of card lock puzzle
+ */
 public class CardLock : MonoBehaviour
 {
+    // Pointer to head of linked-list of cards
     private Card head;
+    // Pointer to currently seleced card in list
     private Card selected;
 
+    // array of objects that on which materials will be rendered
     private CardObject[] cardObjects;
-
     private int NUM_CARDS = 4;
 
     // these objects require renderer component
@@ -36,10 +44,12 @@ public class CardLock : MonoBehaviour
     public Material spades_highlight;
     public Material diamonds_highlight;
 
+    // order of suits that is solution to lock
     public string[] suitSolution;
 
     void Awake ()
     {
+        // initialize list of cards
         Card tempH = new Card {next = null, prev = null, suitMat = hearts,
             selectedMat = hearts_highlight, selected = false, suit = "hearts"};
         Card tempC = new Card {next = null, prev = null, suitMat = clubs,
@@ -64,6 +74,7 @@ public class CardLock : MonoBehaviour
     {
         Card temp = head;
         int index = 0;
+        // loop through list, changing material of cardobject if that card is selected
         while (temp != null) {
             if (temp.selected) {
                 cardObjects[index].gameObject.GetComponent<Renderer>().material = temp.selectedMat;
@@ -75,7 +86,9 @@ public class CardLock : MonoBehaviour
         }
     }
 
-    // Reset all cards so they are no longer selected
+    /*
+     * Reset all cards so they are no longer selected
+     */
     public void ResetAll ()
     {
         Card temp = head;
@@ -86,6 +99,9 @@ public class CardLock : MonoBehaviour
         }
     }
 
+    /*
+     * determine which card is selected
+     */
     public void determineSelected ()
     {
         Card temp = head;
@@ -99,6 +115,9 @@ public class CardLock : MonoBehaviour
         }
     }
 
+    /*
+     * WOW
+     */
     public void moveSelectedLeft ()
     {
         Card tempPrev;
@@ -153,6 +172,9 @@ public class CardLock : MonoBehaviour
 
     }
 
+    /*
+     * OH WOW
+     */
     public void moveSelectedRight ()
     {
         Card tempPrev;
@@ -202,6 +224,9 @@ public class CardLock : MonoBehaviour
 
     }
 
+    /*
+     * check if cards are in correct order
+     */
     public bool checkCorrectness ()
     {
         Card temp = head;

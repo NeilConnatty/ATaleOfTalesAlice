@@ -2,9 +2,14 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+/*
+ * Script describing behaviour of hint button on player 2's UI
+ */
 public class HintButton : MonoBehaviour
 {
+    // hint object
     public GameObject hint;
+    // sprites representing hint button
     public Sprite offSprite;
     public Sprite clickedSprite;
 

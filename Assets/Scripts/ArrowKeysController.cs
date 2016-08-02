@@ -2,6 +2,9 @@
 using UnityEngine.Networking;
 using System.Collections;
 
+/*
+ * Script controlling player's movement in 3D space
+ */
 public class ArrowKeysController : NetworkBehaviour {
 
 	// public variables
@@ -11,12 +14,15 @@ public class ArrowKeysController : NetworkBehaviour {
 	private CharacterController myController;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		myController = gameObject.GetComponent<CharacterController>();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		// check if input is coming from local player
 		if (isLocalPlayer) {
 			// Determine how much should move in the z-direction
 			Vector3 movementZ = Input.GetAxis("Vertical") * Vector3.forward * moveSpeed * Time.deltaTime;

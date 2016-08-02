@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script describing behaviour of crossword puzzle
+ */
 public class CrosswordPuzzle : MonoBehaviour
 {
     public Word[] words;
-    //public PuzzleOneManager pm;
 
     private bool _isSolved;
 
@@ -20,6 +22,5 @@ public class CrosswordPuzzle : MonoBehaviour
             if (!word.isWordCorrect ()) return;
         }
         _isSolved = true;
-        //pm.CompleteCrosswordPuzzle ();
     }
 }

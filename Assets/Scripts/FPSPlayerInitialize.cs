@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+/*
+ * script to control initialization of player with first-person shooter-style controls
+ */
 public class FPSPlayerInitialize : NetworkBehaviour
 {
     private GameObject _secondaryCamera;
