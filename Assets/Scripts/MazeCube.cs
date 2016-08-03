@@ -5,10 +5,15 @@ using UnityEngine.Networking;
 public enum CubeNumber {one = 0, two = 1, three = 2};
 
 [RequireComponent (typeof (Collider))]
+/*
+ * script describing behaviour of portal in maze
+ * in early prototypes, was represented by a cube, now represented by
+ * a mushroom
+ */
 public class MazeCube : NetworkBehaviour
 {
-
     public CubeNumber cubeNum;
+    // star object that appears above portal
     public GameObject star;
 
     private bool mouseClicked = false;
@@ -25,6 +30,9 @@ public class MazeCube : NetworkBehaviour
         InitializeStar ();
     }
 
+    /*
+     * activate star if correct state and correct CubeNumber
+     */
     void InitializeStar ()
     {
         star.SetActive (false);
@@ -48,37 +56,31 @@ public class MazeCube : NetworkBehaviour
 
     void OnMouseEnter ()
     {
+        // display highlight
         _renderer.enabled = true;
     }
 
     void OnMouseExit ()
     {
+        // turn off highlight
         _renderer.enabled = false;
     }
 
     void OnMouseDown ()
     {
+        // check to prevent TriggerEvent from being called multiple times
+        // if player accidentally double-clicks
         if (mouseClicked) return;
         mouseClicked = true;
         TriggerEvent ();
     }
 
     /*
-    void StateChange (bool clicked)
-    {
-        mouseClicked = clicked;
-        TriggerEvent ();
-    }
-    */
+     * tell GameState to load next scene, but only if called by player one
+     */
     [Server]
     void TriggerEvent ()
     {
         GameState.gs.loadNextScene ();
-        /*
-        Vector3 tempPosition = _player.GetComponent<Transform> ().position;
-        tempPosition.x = 0;
-        tempPosition.z = 0;
-        _player.GetComponent<Transform> ().position = tempPosition;
-        */
     }
 }

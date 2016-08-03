@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+/*
+ * script describing the initialization of an OVR player prefab when
+ * spawned into the scene
+ */
 public class OVRPlayerInitialize : NetworkBehaviour
 {
     private GameObject _secondaryCamera;

@@ -3,6 +3,10 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 
+/*
+ * script describing the behaviour of a word in the poem on player 2's UI
+ * in room 3
+ */
 public class PoemWord : MonoBehaviour
 {
     public string solution;
@@ -24,6 +28,9 @@ public class PoemWord : MonoBehaviour
         _inputImage = this.GetComponent<Image>();
     }
 
+    /*
+     * called in editor whenever player finishes inputing word
+     */
     public void inputSet ()
     {
         if (_inputField.text.Equals (""))

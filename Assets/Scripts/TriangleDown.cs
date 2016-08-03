@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * script describing behaviour of downward triangle in number lock
+ * and word-scramble lock
+ */
 public class TriangleDown : MonoBehaviour
 {
+    // reference to box containing Letter in associated with triangle
     public GameObject letterBox;
-    public Material redMat;
-    public Material pinkMat;
 
     private Letter _letter;
     private Renderer _myRenderer;
@@ -14,7 +17,6 @@ public class TriangleDown : MonoBehaviour
     {
         _myRenderer = this.gameObject.GetComponent<Renderer>();
         _myRenderer.enabled = false;
-        //_myRenderer.material = redMat;
     }
 
     void Start ()
@@ -34,12 +36,10 @@ public class TriangleDown : MonoBehaviour
     void OnMouseEnter ()
     {
         _myRenderer.enabled = true;
-        //_myRenderer.sharedMaterial = pinkMat;
     }
 
     void OnMouseExit ()
     {
         _myRenderer.enabled = false;
-        //_myRenderer.sharedMaterial = redMat;
     }
 }

@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script describing word scramble puzzle in room one
+ */
 public class WordScramblePuzzle : MonoBehaviour
 {
     public int solutionLength;
+    // array representing solution word
     public string[] solutionLetters;
     public GameObject[] letterTexts;
     public GameObject[] letterBoxes;

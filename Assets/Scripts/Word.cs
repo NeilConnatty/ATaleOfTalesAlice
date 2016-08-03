@@ -2,9 +2,14 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+/*
+ * Script describing word in crossword puzzle
+ */
 public class Word : MonoBehaviour
 {
+    // array of input fields that compose word
     public CrosswordInputField[] inputLetters;
+    // reference to CrosswordPuzzle script
     public CrosswordPuzzle puzzle;
 
     public Color editingColor;
@@ -18,6 +23,9 @@ public class Word : MonoBehaviour
         _isCorrect = false;
     }
 
+    /*
+     * Called whenever a letter's input is changed in word
+     */
     public void inputUpdate ()
     {
         // if word not full
@@ -62,7 +70,6 @@ public class Word : MonoBehaviour
     {
         foreach (CrosswordInputField input in inputLetters) {
             input.setColor (correctColor);
-            //input.makeUninteractable ();
         }
     }
 

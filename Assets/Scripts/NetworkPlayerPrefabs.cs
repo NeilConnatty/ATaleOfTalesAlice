@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+ * Class describing structure of different player prefabs that can be spawned
+ * in different scenes
+ */
 public class NetworkPlayerPrefabs : MonoBehaviour
 {
     public GameObject trianglePrefab;

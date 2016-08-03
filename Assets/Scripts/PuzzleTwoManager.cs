@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script that manages activating significant game objects in room two
+ */
 public class PuzzleTwoManager : MonoBehaviour
 {
     public GameObject clockHint;

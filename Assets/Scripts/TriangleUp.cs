@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * script describing behaviour of upward triangle in number lock
+ * and word-scramble lock
+ */
 public class TriangleUp : MonoBehaviour
 {
+    // reference to box containing Letter in associated with triangle
     public GameObject letterBox;
     public Material redMat;
     public Material greenMat;

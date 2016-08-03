@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * Script describing the behaviour of a string displayed in a letter-scramble or
+ * number scramble puzzle
+ */
 public class Letter : MonoBehaviour
 {
+    // array of strings representing the possible letters that can be displayed
     public string[] letters;
     public int lettersLength;
 
@@ -26,11 +31,17 @@ public class Letter : MonoBehaviour
         displayedLetter.text = letters[_indexDisplayedLetter];
     }
 
+    /*
+     * display next letter in array
+     */
     public void LetterUp ()
     {
         _indexDisplayedLetter = (_indexDisplayedLetter + 1) % lettersLength;
     }
 
+    /*
+     * display previous letter in array
+     */
     public void LetterDown ()
     {
         if (_indexDisplayedLetter == 0)

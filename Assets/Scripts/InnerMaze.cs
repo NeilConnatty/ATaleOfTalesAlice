@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Hack to initialize innerMaze y position
+ */
 public class InnerMaze : MonoBehaviour {
 
 	private bool _initialized = false;

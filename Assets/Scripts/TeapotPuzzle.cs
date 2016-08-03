@@ -8,14 +8,21 @@ struct TeapotClick {
     public Vector3 position;
 }
 
+/*
+ * Script describing behaviour of teapot puzzle
+ */
 public class TeapotPuzzle : NetworkBehaviour
 {
+    // array of enums giving solution
     public SmokeColor[] solution;
+    // reference to room's puzzle manager
     public PuzzleTwoManager pm;
+    // reference to smoke particle system prefab
     public GameObject particleSystem;
 
     private int _numberCorrect;
 
+    // variable to sync behaviour across network
     [SyncVar(hook="StateChange")] TeapotClick teapotClick;
 
     void Awake ()
@@ -45,6 +52,8 @@ public class TeapotPuzzle : NetworkBehaviour
 
     void submitSmoke (SmokeColor smokeColor)
     {
+        // check if color is correct, if yes, check if solution reached, if no,
+        // reset _numberCorrect variable
         if (solution[_numberCorrect] == smokeColor) {
             _numberCorrect++;
             if (_numberCorrect == 4) {
@@ -77,6 +86,7 @@ public class TeapotPuzzle : NetworkBehaviour
     void StateChange (TeapotClick potClick)
     {
         teapotClick = potClick;
+        // make smoke white on player one's screen, coloured on player two
         if (isServer) {
             makeSmoke (Color.white, teapotClick.position);
         } else {

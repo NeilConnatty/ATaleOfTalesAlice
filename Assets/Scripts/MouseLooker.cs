@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Script to control rotation of player character with FPS-style controls
+ */
 public class MouseLooker : MonoBehaviour {
 
 	// Use this for initialization

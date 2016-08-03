@@ -1,13 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * script describing behaviour of number lock puzzle in room two
+ */
 public class NumberLockPuzzle : MonoBehaviour
 {
+    // reference to puzzle manager
     public PuzzleTwoManager pm;
-
+    // array of strings representing solution
     public string[] solutionNumbers;
+    // the 3d text objects representing numbers diplayed
     public TextMesh[] numberTexts;
+    // the game object boxes housing the texts
     public GameObject[] letterBoxes;
+    // a green material
     public Material greenMat;
 
     void Update ()
