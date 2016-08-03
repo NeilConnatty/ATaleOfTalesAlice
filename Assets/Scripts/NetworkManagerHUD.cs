@@ -1,4 +1,6 @@
 #if ENABLE_UNET
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace UnityEngine.Networking
 {
@@ -11,6 +13,8 @@ namespace UnityEngine.Networking
 		[SerializeField] public bool showGUI = true;
 		[SerializeField] public int offsetX;
 		[SerializeField] public int offsetY;
+
+		public Dropdown joinGameDropdown;
 
 		// Runtime variable
 		bool showServer = false;
@@ -25,11 +29,40 @@ namespace UnityEngine.Networking
  			manager.StartMatchMaker();
  		}
 
+		public void disableMatchMaker ()
+		{
+			manager.StopMatchMaker();
+		}
+
  		public void CreateMatch (string matchName)
  		{
  			manager.matchName = matchName;
  			manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", manager.OnMatchCreate);
  		}
+
+		public void JoinMatch ()
+		{
+			int index = joinGameDropdown.value;
+			manager.matchName = joinGameDropdown.options[index].text;
+			manager.matchSize = (uint)manager.matches[index].currentSize;
+			manager.matchMaker.JoinMatch(manager.matches[index].networkId, "", manager.OnMatchJoined);
+		}
+
+		public void listMatches ()
+		{
+			List<string> list = new List<string> ();
+			manager.matchMaker.ListMatches(0,40, "", manager.OnMatchList);
+
+			foreach (var match in manager.matches)
+			{
+				list.Add (match.name);
+			}
+
+			joinGameDropdown.ClearOptions ();
+			joinGameDropdown.AddOptions (list);
+
+			list = null;
+		}
 
 		void Update()
 		{
